@@ -1,3 +1,4 @@
+BASE_BRANCH ?= main
 all: build
 .PHONY: all
 
@@ -58,6 +59,9 @@ clusters:
 
 demo:
 	scripts/demo.sh
+
+gitlint:
+	gitlint --commits origin/$(BASE_BRANCH)..HEAD
 
 update-csv: ensure-operator-sdk
 	cd deploy && rm -rf olm-catalog/manifests && ../$(OPERATOR_SDK) generate bundle --manifests --deploy-dir config/ --crds-dir config/crds/ --output-dir olm-catalog/ --version $(CSV_VERSION)
