@@ -58,7 +58,7 @@ linters:
     - gosec
     - gosimple
     - govet
-    # - ifshort # TODO: Fix and enable
+    - ifshort # TODO: Fix and enable
     # - importas # Not supported with our version of golangci-lint
     - ineffassign
     # - interfacer # Deprecated since v1.38.0
