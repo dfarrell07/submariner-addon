@@ -24,8 +24,7 @@ func FailOnAction(f *testing.Fake, resource, verb string, customErr error, autoR
 	r := &FailingReactor{}
 	r.fail.Store(true)
 
-	retErr := customErr
-	if retErr == nil {
+	if retErr := customErr; retErr == nil {
 		retErr = errors.New("fake error")
 	}
 
